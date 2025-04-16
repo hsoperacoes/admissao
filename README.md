@@ -63,12 +63,11 @@
     <h1>Ficha de Admissão de Funcionário</h1>
     
     <form action="#" method="POST">
-        <!-- Dados da empresa -->
         <fieldset>
             <legend>01) INFORMAÇÕES PESSOAIS</legend>
-            <label for="nome">Nome do Funcionário:</label>
+            <label for="nome">NOME DO FUNCIONÁRIO (A):</label>
             <input type="text" id="nome" name="nome" required>
-            
+
             <label for="endereco">Endereço Residencial:</label>
             <input type="text" id="endereco" name="endereco" required>
 
@@ -87,8 +86,13 @@
             <label for="uf">UF:</label>
             <input type="text" id="uf" name="uf" required>
 
+            <p>OBS: Sempre que houver mudança de endereço, deve ser comunicado imediatamente ao escritório.</p>
+
             <label for="casa_propria">Casa Própria:</label>
-            <input type="checkbox" id="casa_propria" name="casa_propria">
+            <input type="checkbox" id="casa_propria" name="casa_propria"> Sim
+
+            <label for="recursos_cef">Adquirida com recursos da CEF:</label>
+            <input type="checkbox" id="recursos_cef" name="recursos_cef"> Sim
 
             <label for="grau_escolaridade">Grau de Escolaridade:</label>
             <select id="grau_escolaridade" name="grau_escolaridade">
@@ -132,9 +136,11 @@
 
             <label for="numero_conta">Número da Conta:</label>
             <input type="text" id="numero_conta" name="numero_conta">
+
+            <label for="pix">PIX:</label>
+            <input type="text" id="pix" name="pix">
         </fieldset>
 
-        <!-- Dados para Registro -->
         <fieldset>
             <legend>02) INFORMAÇÕES PARA REGISTRO</legend>
             <label for="data_admissao">Data da Admissão:</label>
@@ -146,45 +152,126 @@
             <label for="funcao">Função:</label>
             <input type="text" id="funcao" name="funcao" required>
 
-            <label for="salario">Salário:</label>
+            <label for="salario">Salário (R$):</label>
             <input type="number" id="salario" name="salario" required>
 
             <label for="contrato_experiencia">Contrato de Experiência:</label>
-            <input type="checkbox" id="contrato_experiencia" name="contrato_experiencia">
-            
-            <label for="pis">PIS:</label>
-            <input type="text" id="pis" name="pis" required>
+            <input type="checkbox" id="contrato_experiencia" name="contrato_experiencia"> Sim
 
-            <label for="primeiro_emprego">Primeiro Emprego:</label>
-            <input type="checkbox" id="primeiro_emprego" name="primeiro_emprego">
+            <label for="prazo_contrato">Prazo:</label>
+            <input type="radio" id="30_dias" name="prazo_contrato" value="30">
+            <label for="30_dias">30 dias</label>
+            <input type="radio" id="45_dias" name="prazo_contrato" value="45">
+            <label for="45_dias">45 dias</label>
+            <input type="radio" id="60_dias" name="prazo_contrato" value="60">
+            <label for="60_dias">60 dias</label>
+            <input type="radio" id="90_dias" name="prazo_contrato" value="90">
+            <label for="90_dias">90 dias</label>
+
+            <label for="pis">PIS:</label>
+            <input type="text" id="pis" name="pis">
+
+            <label for="primeiro_emprego">1º Emprego:</label>
+            <input type="checkbox" id="primeiro_emprego" name="primeiro_emprego"> Sim
+
+            <label for="vale_transporte">Vale Transporte:</label>
+            <input type="checkbox" id="vale_transporte" name="vale_transporte"> Sim
+
+            <label for="quantos_por_dia">Quantos por dia:</label>
+            <input type="number" id="quantos_por_dia" name="quantos_por_dia">
+
+            <label for="horario_trabalho">Horário de Trabalho:</label>
+            <div class="row">
+                <div class="col">
+                    <label for="entrada">Entrada:</label>
+                    <input type="time" id="entrada" name="entrada">
+                </div>
+                <div class="col">
+                    <label for="saida">Saída:</label>
+                    <input type="time" id="saida" name="saida">
+                </div>
+            </div>
+
+            <label for="intervalo">Intervalo:</label>
+            <div class="row">
+                <div class="col">
+                    <label for="inicio_intervalo">Início:</label>
+                    <input type="time" id="inicio_intervalo" name="inicio_intervalo">
+                </div>
+                <div class="col">
+                    <label for="fim_intervalo">Fim:</label>
+                    <input type="time" id="fim_intervalo" name="fim_intervalo">
+                </div>
+            </div>
         </fieldset>
 
-        <!-- Dependentes -->
         <fieldset>
             <legend>03) DEPENDENTES</legend>
             <label for="filhos_menores_14">Filhos menores de 14 anos:</label>
-            <input type="checkbox" id="filhos_menores_14" name="filhos_menores_14">
+            <input type="checkbox" id="filhos_menores_14" name="filhos_menores_14"> Sim
 
             <label for="quantidade_filhos">Quantos:</label>
             <input type="number" id="quantidade_filhos" name="quantidade_filhos">
         </fieldset>
 
-        <!-- Documentos Necessários -->
         <fieldset>
             <legend>04) DOCUMENTOS NECESSÁRIOS PARA ADMISSÃO</legend>
             <label for="documentos">Marque os documentos entregues:</label>
             <input type="checkbox" id="ficha_admissao" name="documentos" value="ficha_admissao">
             <label for="ficha_admissao">Ficha de Admissão</label>
+
             <input type="checkbox" id="carteira_trabalho" name="documentos" value="carteira_trabalho">
             <label for="carteira_trabalho">Carteira de Trabalho</label>
+
             <input type="checkbox" id="pis_documento" name="documentos" value="pis_documento">
             <label for="pis_documento">Número do PIS</label>
+
             <input type="checkbox" id="rg" name="documentos" value="rg">
             <label for="rg">RG</label>
+
             <input type="checkbox" id="cpf" name="documentos" value="cpf">
             <label for="cpf">CPF</label>
+
             <input type="checkbox" id="exame_medico" name="documentos" value="exame_medico">
             <label for="exame_medico">Exame Médico Admissional</label>
+
+            <input type="checkbox" id="foto" name="documentos" value="foto">
+            <label for="foto">Foto 3x4</label>
         </fieldset>
 
-        <button type="submit">Enviar Ficha de Admiss
+        <fieldset>
+            <legend>05) DOCUMENTOS DE INTERESSE FUNCIONÁRIO</legend>
+            <label for="documentos_funcionario">Marque os documentos entregues:</label>
+            <input type="checkbox" id="certidao_nascimento" name="documentos_funcionario" value="certidao_nascimento">
+            <label for="certidao_nascimento">Certidão de Nascimento (Filhos até 07 anos)</label>
+
+            <input type="checkbox" id="cartao_vacina" name="documentos_funcionario" value="cartao_vacina">
+            <label for="cartao_vacina">Cartão de Vacina (Filhos até 07 anos)</label>
+
+            <input type="checkbox" id="atestado_escolaridade" name="documentos_funcionario" value="atestado_escolaridade">
+            <label for="atestado_escolaridade">Atestado de Escolaridade (Filhos entre 07 e 14 anos)</label>
+
+            <input type="checkbox" id="termo_judicial" name="documentos_funcionario" value="termo_judicial">
+            <label for="termo_judicial">Filho Adotivo - Comprovação de Termo Judicial</label>
+
+            <input type="checkbox" id="certidao_casamento" name="documentos_funcionario" value="certidao_casamento">
+            <label for="certidao_casamento">Certidão de Casamento ou Averbação Judicial</label>
+
+            <input type="checkbox" id="cpf_filhos" name="documentos_funcionario" value="cpf_filhos">
+            <label for="cpf_filhos">CPF dos Filhos</label>
+        </fieldset>
+
+        <div>
+            <label for="assinatura_funcionario">Assinatura do Funcionário:</label>
+            <input type="text" id="assinatura_funcionario" name="assinatura_funcionario">
+        </div>
+
+        <div>
+            <label for="assinatura_empresa">Assinatura da Empresa:</label>
+            <input type="text" id="assinatura_empresa" name="assinatura_empresa">
+        </div>
+
+        <button type="submit">Enviar Ficha de Admissão</button>
+    </form>
+</body>
+</html>
