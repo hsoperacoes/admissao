@@ -1,223 +1,254 @@
-<!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Ficha de Admissão de Funcionários</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #f4f6f8;
-      margin: 0;
-      padding: 30px;
-      color: #333;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      padding: 20px;
     }
-
     h1 {
       text-align: center;
-      font-size: 28px;
-      color: #2c3e50;
-      margin-bottom: 30px;
+      font-size: 24px;
     }
-
-    form {
-      background: #ffffff;
-      padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
     fieldset {
-      border: none;
-      margin-bottom: 25px;
-      padding: 0;
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
     }
-
     legend {
-      font-weight: 600;
-      font-size: 20px;
-      color: #2980b9;
-      margin-bottom: 10px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 5px;
+      font-weight: bold;
+      font-size: 18px;
     }
-
     label {
       display: block;
-      margin-top: 15px;
-      font-size: 14px;
+      margin-top: 8px;
     }
-
-    input[type="text"],
-    input[type="date"],
-    input[type="number"],
-    input[type="time"],
-    select {
+    input[type="text"], input[type="date"], input[type="number"], input[type="time"], select {
       width: 100%;
-      padding: 10px;
-      margin-top: 6px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-sizing: border-box;
-      font-size: 14px;
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
     }
-
-    input[type="checkbox"],
-    input[type="radio"] {
-      margin-right: 8px;
+    input[type="checkbox"], input[type="radio"] {
+      margin-right: 10px;
     }
-
     .row {
       display: flex;
-      gap: 20px;
+      flex-wrap: wrap;
     }
-
     .col {
       flex: 1;
+      margin-right: 10px;
     }
-
+    .col:last-child {
+      margin-right: 0;
+    }
     button {
-      background-color: #3498db;
+      background-color: #4CAF50;
       color: white;
-      padding: 12px 24px;
+      padding: 10px 20px;
       border: none;
-      border-radius: 8px;
       cursor: pointer;
       font-size: 16px;
-      transition: background 0.3s;
-      display: block;
-      margin: 30px auto 0;
+      margin-top: 20px;
     }
-
     button:hover {
-      background-color: #2980b9;
-    }
-
-    p {
-      margin-top: 15px;
-      font-size: 13px;
-      color: #7f8c8d;
-    }
-
-    .checkbox-group,
-    .radio-group {
-      margin-top: 10px;
-    }
-
-    .checkbox-group label,
-    .radio-group label {
-      display: inline-block;
-      margin-right: 20px;
-      font-size: 14px;
-    }
-
-    input[type="text"][disabled] {
-      background-color: #eee;
+      background-color: #45a049;
     }
   </style>
 </head>
 <body>
   <h1>Ficha de Admissão de Funcionário</h1>
 
-  <form>
+  <form id="fichaAdmissao" onsubmit="return validarFormulario();">
     <fieldset>
-      <legend>Informações Pessoais</legend>
+      <legend>01) INFORMAÇÕES PESSOAIS</legend>
+      <label for="nome">NOME DO FUNCIONÁRIO (A):</label>
+      <input type="text" id="nome" name="nome" required>
 
-      <label for="nome">Nome completo:</label>
-      <input type="text" id="nome" name="nome">
+      <label for="endereco">Endereço Residencial:</label>
+      <input type="text" id="endereco" name="endereco" required>
 
-      <label for="nascimento">Data de nascimento:</label>
-      <input type="date" id="nascimento" name="nascimento">
-
-      <label for="cpf">CPF:</label>
-      <input type="text" id="cpf" name="cpf">
-
-      <label for="rg">RG:</label>
-      <input type="text" id="rg" name="rg">
-
-      <label for="sexo">Sexo:</label>
-      <select id="sexo" name="sexo">
-        <option value="">Selecione</option>
-        <option value="masculino">Masculino</option>
-        <option value="feminino">Feminino</option>
-        <option value="outro">Outro</option>
-      </select>
-
-      <label for="civil">Estado civil:</label>
-      <select id="civil" name="civil">
-        <option value="">Selecione</option>
-        <option value="solteiro">Solteiro(a)</option>
-        <option value="casado">Casado(a)</option>
-        <option value="divorciado">Divorciado(a)</option>
-        <option value="viuvo">Viúvo(a)</option>
-      </select>
-
-      <label for="nacionalidade">Nacionalidade:</label>
-      <input type="text" id="nacionalidade" name="nacionalidade">
-    </fieldset>
-
-    <fieldset>
-      <legend>Endereço</legend>
-
-      <label for="endereco">Endereço:</label>
-      <input type="text" id="endereco" name="endereco">
-
-      <label for="cidade">Cidade:</label>
-      <input type="text" id="cidade" name="cidade">
-
-      <label for="estado">Estado:</label>
-      <input type="text" id="estado" name="estado">
+      <label for="bairro">Bairro:</label>
+      <input type="text" id="bairro" name="bairro" required>
 
       <label for="cep">CEP:</label>
-      <input type="text" id="cep" name="cep">
+      <input type="text" id="cep" name="cep" required>
+
+      <label for="telefone">Fones:</label>
+      <input type="text" id="telefone" name="telefone" required>
+
+      <label for="cidade">Cidade:</label>
+      <input type="text" id="cidade" name="cidade" required>
+
+      <label for="uf">UF:</label>
+      <input type="text" id="uf" name="uf" required>
+
+      <p>OBS: Sempre que houver mudança de endereço, deve ser comunicado imediatamente ao escritório.</p>
+
+      <label><input type="checkbox" id="casa_propria" name="casa_propria"> Casa Própria</label>
+      <label><input type="checkbox" id="recursos_cef" name="recursos_cef"> Adquirida com recursos da CEF</label>
+
+      <label for="grau_escolaridade">Grau de Escolaridade:</label>
+      <select id="grau_escolaridade" name="grau_escolaridade" required>
+        <option value="">Selecione</option>
+        <option value="analfabeto">Analfabeto</option>
+        <option value="ate_4a_serie">Até a 4ª Série</option>
+        <option value="de_5a_8a_serie">De 5ª a 8ª Série</option>
+        <option value="1o_grau_completo">1º grau completo</option>
+        <option value="2o_grau_incompleto">2º grau incompleto</option>
+        <option value="2o_grau_completo">2º grau completo</option>
+        <option value="superior_incompleto">Superior incompleto</option>
+        <option value="superior_completo">Superior Completo</option>
+        <option value="pos_graduacao">Pós Graduação</option>
+      </select>
+
+      <label for="data_nascimento">Data de Nascimento:</label>
+      <input type="date" id="data_nascimento" name="data_nascimento" required>
+
+      <label for="naturalidade">Naturalidade:</label>
+      <input type="text" id="naturalidade" name="naturalidade" required>
+
+      <label for="estado_civil">Estado Civil:</label>
+      <input type="text" id="estado_civil" name="estado_civil" required>
+
+      <label for="nome_conjugue">Nome do Cônjuge:</label>
+      <input type="text" id="nome_conjugue" name="nome_conjugue">
+
+      <label for="cpf_conjugue">CPF do Cônjuge:</label>
+      <input type="text" id="cpf_conjugue" name="cpf_conjugue">
+
+      <label>Conta Bancária:</label>
+      <label><input type="radio" name="conta_bancaria" value="corrente" required> Conta Corrente</label>
+      <label><input type="radio" name="conta_bancaria" value="poupanca" required> Conta Poupança</label>
+
+      <label for="banco">Banco:</label>
+      <input type="text" id="banco" name="banco" required>
+
+      <label for="agencia">Agência:</label>
+      <input type="text" id="agencia" name="agencia" required>
+
+      <label for="numero_conta">Número da Conta:</label>
+      <input type="text" id="numero_conta" name="numero_conta" required>
+
+      <label for="pix">PIX:</label>
+      <input type="text" id="pix" name="pix" required>
     </fieldset>
 
     <fieldset>
-      <legend>Informações Profissionais</legend>
+      <legend>02) INFORMAÇÕES PARA REGISTRO</legend>
 
-      <label for="cargo">Cargo:</label>
-      <input type="text" id="cargo" name="cargo">
+      <label for="data_admissao">Data da Admissão:</label>
+      <input type="date" id="data_admissao" name="data_admissao" required>
 
-      <label for="salario">Salário:</label>
-      <input type="number" id="salario" name="salario" step="0.01">
+      <label for="data_exame_admissional">Data do Exame Admissional:</label>
+      <input type="date" id="data_exame_admissional" name="data_exame_admissional" required>
 
-      <label for="admissao">Data de admissão:</label>
-      <input type="date" id="admissao" name="admissao">
+      <label for="funcao">Função:</label>
+      <input type="text" id="funcao" name="funcao" required>
 
-      <label for="horario">Horário de trabalho:</label>
-      <input type="text" id="horario" name="horario" placeholder="Ex: 08:00 às 17:00">
-    </fieldset>
+      <label for="salario">Salário (R$):</label>
+      <input type="number" id="salario" name="salario" required>
 
-    <fieldset>
-      <legend>Informações de Contato</legend>
+      <label><input type="checkbox" id="contrato_experiencia" name="contrato_experiencia"> Contrato de Experiência</label>
 
-      <label for="telefone">Telefone:</label>
-      <input type="text" id="telefone" name="telefone">
+      <label>Prazo do Contrato:</label>
+      <label><input type="radio" name="prazo_contrato" value="30" required> 30 dias</label>
+      <label><input type="radio" name="prazo_contrato" value="45" required> 45 dias</label>
+      <label><input type="radio" name="prazo_contrato" value="60" required> 60 dias</label>
+      <label><input type="radio" name="prazo_contrato" value="90" required> 90 dias</label>
 
-      <label for="email">E-mail:</label>
-      <input type="text" id="email" name="email">
-    </fieldset>
+      <label for="pis">PIS:</label>
+      <input type="text" id="pis" name="pis" required>
 
-    <fieldset>
-      <legend>Documentos Entregues</legend>
+      <label><input type="checkbox" id="primeiro_emprego" name="primeiro_emprego"> 1º Emprego</label>
 
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="documentos" value="cpf">CPF</label>
-        <label><input type="checkbox" name="documentos" value="rg">RG</label>
-        <label><input type="checkbox" name="documentos" value="ctps">CTPS</label>
-        <label><input type="checkbox" name="documentos" value="comprovante">Comprovante de Residência</label>
+      <label><input type="checkbox" id="vale_transporte" name="vale_transporte"> Vale Transporte</label>
+
+      <label for="quantos_por_dia">Quantos por dia:</label>
+      <input type="number" id="quantos_por_dia" name="quantos_por_dia" required>
+
+      <label for="horario_trabalho">Horário de Trabalho:</label>
+      <div class="row">
+        <div class="col">
+          <label for="entrada">Entrada:</label>
+          <input type="time" id="entrada" name="entrada" required>
+        </div>
+        <div class="col">
+          <label for="saida">Saída:</label>
+          <input type="time" id="saida" name="saida" required>
+        </div>
+      </div>
+
+      <label for="intervalo">Intervalo:</label>
+      <div class="row">
+        <div class="col">
+          <label for="inicio_intervalo">Início:</label>
+          <input type="time" id="inicio_intervalo" name="inicio_intervalo" required>
+        </div>
+        <div class="col">
+          <label for="fim_intervalo">Fim:</label>
+          <input type="time" id="fim_intervalo" name="fim_intervalo" required>
+        </div>
       </div>
     </fieldset>
 
     <fieldset>
-      <legend>Observações</legend>
-      <textarea name="observacoes" rows="4" style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #ccc; font-size: 14px;"></textarea>
+      <legend>03) DEPENDENTES</legend>
+      <label><input type="checkbox" id="filhos_menores_14" name="filhos_menores_14"> Filhos menores de 14 anos</label>
+
+      <label for="quantidade_filhos">Quantos:</label>
+      <input type="number" id="quantidade_filhos" name="quantidade_filhos" required>
     </fieldset>
 
-    <button type="submit">Enviar</button>
+    <fieldset>
+      <legend>04) DOCUMENTOS NECESSÁRIOS PARA ADMISSÃO</legend>
+      <label><input type="checkbox" name="documentos" value="ficha_admissao" required> Ficha de Admissão</label>
+      <label><input type="checkbox" name="documentos" value="carteira_trabalho" required> Carteira de Trabalho</label>
+      <label><input type="checkbox" name="documentos" value="pis_documento" required> Número do PIS</label>
+      <label><input type="checkbox" name="documentos" value="rg" required> RG</label>
+      <label><input type="checkbox" name="documentos" value="cpf" required> CPF</label>
+      <label><input type="checkbox" name="documentos" value="exame_medico" required> Exame Médico Admissional</label>
+      <label><input type="checkbox" name="documentos" value="foto" required> Foto 3x4</label>
+    </fieldset>
+
+    <fieldset>
+      <legend>05) DOCUMENTOS DE INTERESSE FUNCIONÁRIO</legend>
+      <label><input type="checkbox" name="documentos_funcionario" value="certidao_nascimento" required> Certidão de Nascimento</label>
+      <label><input type="checkbox" name="documentos_funcionario" value="cartao_vacina" required> Cartão de Vacina</label>
+      <label><input type="checkbox" name="documentos_funcionario" value="atestado_escolaridade" required> Atestado de Escolaridade</label>
+      <label><input type="checkbox" name="documentos_funcionario" value="termo_judicial" required> Termo Judicial (Adotivo)</label>
+      <label><input type="checkbox" name="documentos_funcionario" value="certidao_casamento" required> Certidão de Casamento</label>
+      <label><input type="checkbox" name="documentos_funcionario" value="cpf_filhos" required> CPF dos Filhos</label>
+    </fieldset>
+
+    <div>
+      <label for="assinatura_funcionario">Assinatura do Funcionário:</label>
+      <input type="text" id="assinatura_funcionario" name="assinatura_funcionario" required>
+    </div>
+
+    <div>
+      <label for="assinatura_empresa">Assinatura da Empresa:</label>
+      <input type="text" id="assinatura_empresa" name="assinatura_empresa" required>
+    </div>
+
+    <button type="submit">Enviar Ficha de Admissão</button>
+    <button type="button" onclick="window.print()">Imprimir Ficha</button>
   </form>
+
+  <script>
+    function validarFormulario() {
+      const form = document.getElementById("fichaAdmissao");
+      if (!form.checkValidity()) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return false;
+      }
+      alert("Ficha enviada com sucesso!");
+      return true;
+    }
+  </script>
 </body>
 </html>
